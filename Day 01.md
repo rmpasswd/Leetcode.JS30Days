@@ -131,7 +131,8 @@ function argCheck(fun){
     - It only has length property, cannot insert delete elements
         - [https://2ality.com/2013/06/basic-javascript.html#sect_functions:~:text=Too many or too few arguments](https://2ality.com/2013/06/basic-javascript.html#sect_functions:~:text=Too%20many%20or%20too%20few%20arguments)
             
-            ![image](https://github.com/rmpasswd/JS30Days/assets/35218856/fe3a1c2d-09f2-45b2-815c-8eef6aacc06b)
+            ![image](https://github.com/rmpasswd/JS30Days/assets/35218856/ab4c52e7-3047-4894-93e0-4636b5be1a97)
+
 
 
 - **More About Function Arguments: [The Spread syntax (...)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)**
