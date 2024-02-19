@@ -1,4 +1,4 @@
-# Day1 Hello World Task, Learning About Functions
+# Day 1 Hello World Task, Learning About Functions
 
 Note from Leetcode Editorial, other docs…
 
