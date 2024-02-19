@@ -177,27 +177,6 @@ function argCheck(fun){
 
 ---
 
-### Closures
-
-A function can use variables that are *just outside* its scope!
-
-> it has access to a reference to all the variables declared around it, also known as it's ***lexical environment.*** The combination of the function and its environment is called a ***closure***.
-> 
-
-```sql
-function createAdder(initial){
-    function addi(b){
-        return initial + b;
-    }
-    return addi;
-}
-
-const adder1 = createAdder(5);
-const adder2 = createAdder(10); 
-console.log(adder1(10)); // 15
-console.log(adder2(10)); // 20
-```
-
 - Different runtime, unexplained.
     
     ![image](https://github.com/rmpasswd/JS30Days/assets/35218856/27cbad34-bcd7-4da1-a03f-8874600f228b)
