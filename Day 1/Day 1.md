@@ -131,8 +131,8 @@ function argCheck(fun){
     - It only has length property, cannot insert delete elements
         - [https://2ality.com/2013/06/basic-javascript.html#sect_functions:~:text=Too many or too few arguments](https://2ality.com/2013/06/basic-javascript.html#sect_functions:~:text=Too%20many%20or%20too%20few%20arguments)
             
-            ![Untitled](Day1%20Hello%20World%20Task,%20Learning%20About%20Functions%202abc1fa7c93e4ed88524ecd86205805d/Untitled.png)
-            
+            ![image](https://github.com/rmpasswd/JS30Days/assets/35218856/fe3a1c2d-09f2-45b2-815c-8eef6aacc06b)
+
 
 - **More About Function Arguments: [The Spread syntax (...)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)**
     - Basic Use:
@@ -199,6 +199,6 @@ console.log(adder2(10)); // 20
 
 - Different runtime, unexplained.
     
-    ![Untitled](Day1%20Hello%20World%20Task,%20Learning%20About%20Functions%202abc1fa7c93e4ed88524ecd86205805d/Untitled%201.png)
-    
-    ![Untitled](Day1%20Hello%20World%20Task,%20Learning%20About%20Functions%202abc1fa7c93e4ed88524ecd86205805d/Untitled%202.png)
+    ![image](https://github.com/rmpasswd/JS30Days/assets/35218856/27cbad34-bcd7-4da1-a03f-8874600f228b)
+
+	![image](https://github.com/rmpasswd/JS30Days/assets/35218856/bd568a5f-5c67-4026-9ae4-00b314f6d43f)
