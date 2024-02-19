@@ -17,7 +17,7 @@ Note from Leetcode Editorial, other docs…
 - **Anonymous Function:**
     
     ```jsx
-    var f = function(a, b) { // **We can omit function name *fun* and assign a variable**
+    var f = function(a, b) { // We can omit function name *fun* and assign a variable
         const sum = a + b;
         return sum;
     }
@@ -27,17 +27,17 @@ Note from Leetcode Editorial, other docs…
 - **Arrow Syntax:**
     
     ```sql
-    // 'function' keyword is omitted, and fun is the **function's name**
-    var **fun** = (a,b) => { 
+    // 'function' keyword is omitted, and fun is the function's name
+    var fun = (a,b) => { 
     	return a+b; // if there is only 1 line, can omit the return keyword and curly braces, see next codeblock..
     }
-    console.log(**fun**(3, 4)); // 7
+    console.log(fun(3, 4)); // 7
     ```
     
     ```sql
-    const **addNprint** = (i,j) => console.log(i+j);
+    const addNprint = (i,j) => console.log(i+j);
     
-    **addNprint**(4,5);
+    addNprint(4,5);
     ```
     
 - **Immediately Invoked Function Expression (IIFE)** `( function description )(3,4 parameters);`
@@ -74,7 +74,7 @@ function createFunction() {
         const sum = a + b;
         return sum;
     }
-    **return f;**
+    return f;
 }
 const fun = createFunction();
 console.log(fun(3, 4)); // 7
@@ -82,7 +82,7 @@ console.log(fun(3, 4)); // 7
 
 ### In the Wild: Arity Check Mechanism
 
-⇒ How to check if a function call has indeed been passed the expected number of parameters? not relying on exceptions.
+⇒ How to check if a function call has indeed been passed the expected number of parameters? not relying on error-exceptions.
 
 Consider this simple greet function, just for demo purpose. We are calling the greet function from inside the object *someObj*.
 
@@ -114,7 +114,7 @@ function greet(a,b){
 // argCheck checks whether number of parameters passed to it equals to the number of parameters its function argument(fun = greet) can take.
 // Note that js is flexible in the number of parameters we can pass to a function.
 function argCheck(fun){
-		return function() {  // **return ()=> {**
+		return function() {  // return ()=> {
 	    if (arguments.length !=fun.length ){
 	        console.log("Mismatch number of arguments, Got ", arguments.length, " But expected ", fun.length);
 	        return;
@@ -168,7 +168,7 @@ function argCheck(fun){
         }
     }
     const f = log((a, b) => a + b);
-    **f(1, 2); // Logs: Input [1, 2] Output 3**
+    f(1, 2); // Logs: Input [1, 2] Output 3
     ```
     
 
