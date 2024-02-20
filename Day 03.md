@@ -10,7 +10,8 @@ console.log(expecto1.tobe); // TypeError: Cannot read properties of undefined (r
 
 **Trying to access 'tobe' as if it is a property will not work because it is inside a function.**
 
-Ways to access function properties with Dot notation.:
+Ways to access function properties with Dot notation .
+Use an javascript object:
 ```js
 var expect = {
     name: "To Be or Not to be",
@@ -21,7 +22,7 @@ var expect = {
 console.log(expect.tobe(4));
 ```
 
-**or use a class:**
+**or use a oop class:**
 ```js
 class expect{
     constructor(value){
