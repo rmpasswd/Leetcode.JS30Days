@@ -79,7 +79,7 @@ function createFunction() {
 const fun = createFunction();
 console.log(fun(3, 4)); // 7
 ```
-** comma vs plus + sign in return statment **
+**comma vs plus + sign in return statment**
 ```js
 function fun(value){
         return value, " or whatever"; // This will return a tuple.
