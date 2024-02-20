@@ -79,6 +79,14 @@ function createFunction() {
 const fun = createFunction();
 console.log(fun(3, 4)); // 7
 ```
+** comma vs plus + sign in return statment **
+```js
+function fun(value){
+        return value, " or whatever"; // This will return a tuple.
+}
+console.log(fun(45)); // This will not return "45, or whatever".  Console.log returns only the Last element of an array!
+```
+
 
 ### In the Wild: Arity Check Mechanism
 
