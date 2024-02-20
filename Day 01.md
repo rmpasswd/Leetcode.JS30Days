@@ -6,7 +6,7 @@ Note from Leetcode Editorial, other docs…
 
 - **Basic function syntax:**
     
-    ```sql
+    ```js
     function fun(a, b) {
         const sum = a + b;
         return sum;
@@ -26,7 +26,7 @@ Note from Leetcode Editorial, other docs…
     
 - **Arrow Syntax:**
     
-    ```sql
+    ```js
     // 'function' keyword is omitted, and fun is the function's name
     var fun = (a,b) => { 
     	return a+b; // if there is only 1 line, can omit the return keyword and curly braces, see next codeblock..
@@ -34,7 +34,7 @@ Note from Leetcode Editorial, other docs…
     console.log(fun(3, 4)); // 7
     ```
     
-    ```sql
+    ```js
     const addNprint = (i,j) => console.log(i+j);
     
     addNprint(4,5);
@@ -42,7 +42,7 @@ Note from Leetcode Editorial, other docs…
     
 - **Immediately Invoked Function Expression (IIFE)** `( function description )(3,4 parameters);`
     
-    ```sql
+    ```js
     const result = (function(a, b) {
         const sum = a + b;
         return sum;
@@ -79,14 +79,14 @@ function createFunction() {
 const fun = createFunction();
 console.log(fun(3, 4)); // 7
 ```
-**comma vs plus + sign in return statment**
+**comma vs plus + sign in return statement**
 ```js
 function fun(value){
         return value, " or whatever"; // This will return a tuple.
 }
 console.log(fun(45)); // This will not return "45, or whatever".  Console.log returns only the Last element of an array!
 ```
-
+Instead always use + for string concatenation: ``` return value + "or whatev" ```
 
 ### In the Wild: Arity Check Mechanism
 
@@ -94,7 +94,7 @@ console.log(fun(45)); // This will not return "45, or whatever".  Console.log re
 
 Consider this simple greet function, just for demo purpose. We are calling the greet function from inside the object *someObj*.
 
-```sql
+```js
 var someObj = {
     greetingText: greet
 }
@@ -107,7 +107,7 @@ function greet(a,b){
 
 What if we Need to ensure that user passes 2 parameters, not 1, not 3.
 
-```sql
+```js
 var someObj = {
     greetingText: argCheck(greet) // call another function argCheck with original greet as parameter.
 }
@@ -146,7 +146,7 @@ function argCheck(fun){
 - **More About Function Arguments: [The Spread syntax (...)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)**
     - Basic Use:
         
-        ```sql
+        ```js
         function sum(x, y, z) {
           return x + y + z;
         }
