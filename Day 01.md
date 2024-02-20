@@ -46,7 +46,7 @@ Note from Leetcode Editorial, other docs…
     const result = (function(a, b) {
         const sum = a + b;
         return sum;
-    })(3, 4);
+    })(3, 4); // this immediate parameter passing i.e. (3,4) makes the function invokable
     console.log(result); // 7
     ```
     
