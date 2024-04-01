@@ -82,13 +82,13 @@ console.log(fun(3, 4)); // 7
 **comma vs plus + sign in return statement**
 ```js
 function fun(value){
-        return value, " or whatever"; // This will return a tuple.
+        return value, " or whatever"; // This will return a *tuple*.
 }
-console.log(fun(45)); // This will not return "45, or whatever".  Console.log returns only the Last element of an array!
+console.log(fun(45)); // This will not return "45, or whatever".  console.log returns only the Last element of a *tuple*!
 ```
 Instead always use + for string concatenation: ``` return value + "or whatev" ```
 
-### In the Wild: Arity Check Mechanism
+### Practical Use Case: Arity Check Mechanism
 
 ⇒ How to check if a function call has indeed been passed the expected number of parameters? not relying on error-exceptions.
 
@@ -128,7 +128,7 @@ function argCheck(fun){
 	        return;
 	    }
 	
-	    return fun.apply(self, arguments); // Run the Greet function if ok.
+	    return fun.apply(self, arguments); // Run the Greet function if check passes. Use 'this' or 'null' instead of 'self' if faced error. ("In Node.js, self is not defined by default")
 		}
 }
 
@@ -168,16 +168,16 @@ function argCheck(fun){
     > - [Object literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_object_literals) (`{ ...obj, key: 'value' }`)
     
     ```jsx
-    function log(inputFunction) {
+    function log(inputpassFuntion) {
         return function(...args) {
             console.log("Input", args);
-            const result = inputFunction(...args);
+            const result = inputpassFuntion(...args);
             console.log("Output", result);
             return result;
         }
     }
-    const f = log((a, b) => a + b);
-    f(1, 2); // Logs: Input [1, 2] Output 3
+    const f = log((a, b) => a + b); // this is calling log function and as a parameter passing an entire function implementation for adding 2 numbers.
+    f(1, 2); // Input [1, 2] Output 3
     ```
     
 
