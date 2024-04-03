@@ -36,10 +36,16 @@ Note from Leetcode Editorial, other docs…
     
     ```js
     const addNprint = (i,j) => console.log(i+j);
-    
     addNprint(4,5);
+
+    // we can also omit the first parenthesis when there is only 1 parameter. fetch api example from freecodecamp:
+    fetch('/json/cats.json')
+	.then(response => response.json())
+	.then(data => {
+	document.getElementById('message').innerHTML = JSON.stringify(data);
+	})
     ```
-    
+
 - **Immediately Invoked Function Expression (IIFE)** `( function description )(3,4 parameters);`
     
     ```js
