@@ -172,7 +172,8 @@ function argCheck(fun){
     > - [Function arguments](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_function_calls) list (`myFunction(a, ...iterableObj, b)`)
     > - [Array literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_array_literals) (`[1, ...iterableObj, '4', 'five', 6]`)
     > - [Object literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_object_literals) (`{ ...obj, key: 'value' }`)
-    
+
+    The followin function `log` takes a function definication as input and then returns a function which is basically a wrapper around the inputfunction with 2 console.logs
     ```jsx
     function log(inputpassFuntion) {
         return function(...args) {
@@ -184,6 +185,15 @@ function argCheck(fun){
     }
     const f = log((a, b) => a + b); // this is calling log function and as a parameter passing an entire function implementation for adding 2 numbers.
     f(1, 2); // Input [1, 2] Output 3
+    // another way is to first define our *inputpassFunction*
+    ```js
+    function add(...args) {
+    let arr = [...args]
+    return arr.reduce( (accu, curr) => accu+=curr )
+    }
+    const f = log(add);
+    f(5,1);
+    // returns Input [5,1] Output 6
     ```
     
 
