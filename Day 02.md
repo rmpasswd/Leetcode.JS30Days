@@ -23,7 +23,7 @@ console.log(adder2(10)); // 20
 ```
 
 Example: Here each counter() holds the inner function only and because of closure can still access the value of "n". This is a feature of closure where **inner function still have access to outer function variable although outer function goes out of context after first call (createCounter(10)).**
-
+```jsx
 var createCounter = function (n) {
     
     return function () {
@@ -32,12 +32,19 @@ var createCounter = function (n) {
 };
 
 /** 
- * const counter = createCounter(10)
- * counter() // 10
- * counter() // 11
- * counter() // 12
+ * const counterTen = createCounter(10)
+ * counterTen() // 10
+ * counterTen() // 11
+ * counterTen() // 12
+ */
+ /** 
+ * const counter20 = createCounter(10)
+ * counter20() // 20
+ * counter20() // 21
+ * counter20() // 22
  */
 
+```
 
 ### Similar Concept: Classes and Constructors
 
