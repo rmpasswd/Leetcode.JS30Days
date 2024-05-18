@@ -38,7 +38,7 @@ var createCounter = function (n) {
  * counterTen() // 12
  */
  /** 
- * const counter20 = createCounter(10)
+ * const counter20 = createCounter(20)
  * counter20() // 20
  * counter20() // 21
  * counter20() // 22
