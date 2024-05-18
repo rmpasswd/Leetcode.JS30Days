@@ -22,6 +22,23 @@ console.log(adder1(10)); // 15
 console.log(adder2(10)); // 20
 ```
 
+Example: Here each counter() holds the inner function only and because of closure can still access the value of "n". This is a feature of closure where **inner function still have access to outer function variable although outer function goes out of context after first call (createCounter(10)).**
+
+var createCounter = function (n) {
+    
+    return function () {
+        return n++;
+    };
+};
+
+/** 
+ * const counter = createCounter(10)
+ * counter() // 10
+ * counter() // 11
+ * counter() // 12
+ */
+
+
 ### Similar Concept: Classes and Constructors
 
   ```js
