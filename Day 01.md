@@ -186,7 +186,6 @@ function argCheck(fun){
     const f = log((a, b) => a + b); // this is calling log function and as a parameter passing an entire function implementation for adding 2 numbers.
     f(1, 2); // Input [1, 2] Output 3
     // another way is to first define our *inputpassFunction*
-    ```js
     function add(...args) {
     let arr = [...args]
     return arr.reduce( (accu, curr) => accu+=curr )
