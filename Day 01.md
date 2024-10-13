@@ -180,7 +180,11 @@ higherOrderfunctionCall(100) // first time it will run slowly but then store the
 higherOrderfunctionCall(100) // second time will be instant, it will use the 'cache'
 
 ```
-- Note that if we replace line `return fibo(n-1) + fibo(n-2)` with the line `return memoize(fibo)(n-1) + memoize(fibo)(n-2)` ; we will not get faster speed, because `fibo(n-1)` and `fibo(n-2)` will run seperately. todo..
+- Note that if we replace line `return fibo(n-1) + fibo(n-2)` with the line `return memoize(fibo)(n-1) + memoize(fibo)(n-2)` ; we will not get faster speed, because `fibo(n-1)` and `fibo(n-2)` will run seperately(pic below). todo..
+  
+![image](https://github.com/user-attachments/assets/c99a2d0e-726b-4cf0-ac65-c5f060f2dce4)
+
+<br>
 
 ## Miscelleneous
 ### **return statement: comma vs plus + sign**
