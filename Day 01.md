@@ -2,7 +2,18 @@
 
 Note from Leetcode Editorial, other docs…
 
-### Different Ways to Function…
+## Miscelleneous
+### **comma vs plus + sign in return statement**
+```js
+function fun(value){
+        return value, " or whatever"; // This will return a *tuple*.
+}
+console.log(fun(45)); // This will not return "45, or whatever".  console.log returns only the Last element of a *tuple*!
+```
+Instead always use + for string concatenation: ``` return value + "or whatev" ```
+
+
+## Different Ways to Function…
 
 - **Basic function syntax:**
     
@@ -12,7 +23,7 @@ Note from Leetcode Editorial, other docs…
         return sum;
     }
     ```
-    
+    - Note that we cannot write `function fun(int a, int b){...}` because plain javascript do not support type declarations in *function parameters*. Typescript supports this syntax: `function fun(a: number, b: number){...}`
 
 - **Anonymous Function:**
     
@@ -72,7 +83,7 @@ Note from Leetcode Editorial, other docs…
 
 ---
 
-**Functions within functions ⇒**
+## **Higher Order Function Functions within functions ⇒**
 
 ```jsx
 function createFunction() {
@@ -85,14 +96,6 @@ function createFunction() {
 const fun = createFunction();
 console.log(fun(3, 4)); // 7
 ```
-**comma vs plus + sign in return statement**
-```js
-function fun(value){
-        return value, " or whatever"; // This will return a *tuple*.
-}
-console.log(fun(45)); // This will not return "45, or whatever".  console.log returns only the Last element of a *tuple*!
-```
-Instead always use + for string concatenation: ``` return value + "or whatev" ```
 
 ### Practical Use Case: Arity Check Mechanism
 
