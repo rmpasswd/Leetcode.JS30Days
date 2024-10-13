@@ -2,16 +2,6 @@
 
 Note from Leetcode Editorial, other docs…
 
-## Miscelleneous
-### **comma vs plus + sign in return statement**
-```js
-function fun(value){
-        return value, " or whatever"; // This will return a *tuple*.
-}
-console.log(fun(45)); // This will not return "45, or whatever".  console.log returns only the Last element of a *tuple*!
-```
-Instead always use + for string concatenation: ``` return value + "or whatev" ```
-
 
 ## Different Ways to Function…
 
@@ -83,7 +73,7 @@ Instead always use + for string concatenation: ``` return value + "or whatev" ``
 
 ---
 
-## **Higher Order Function Functions within functions ⇒**
+## Higher Order Function => Functions within functions
 
 ```jsx
 function createFunction() {
@@ -95,11 +85,13 @@ function createFunction() {
 }
 const fun = createFunction();
 console.log(fun(3, 4)); // 7
+console.log( createFunction()(2,5) ); // 7 //invoke in one line.
+
 ```
 
 ### Practical Use Case: Arity Check Mechanism
 
-⇒ How to check if a function call has indeed been passed the expected number of parameters? not relying on error-exceptions.
+⇒ How to check if a function call has indeed been passed the expected number of parameters? without relying on error-exceptions.
 
 Consider this simple greet function, just for demo purpose. We are calling the greet function from inside the object *someObj*.
 
@@ -107,21 +99,21 @@ Consider this simple greet function, just for demo purpose. We are calling the g
 var someObj = {
     greetingText: greet
 }
-someObj.greetingText("Nat", "Willberg");
+someObj.greetingText("Nat", "Willberg"); // this line is the function call
 
-function greet(a,b){
+function greet(a,b){ // greet fun definition
     console.log("hello, ", a, b);
 }
 ```
 
-What if we Need to ensure that user passes 2 parameters, not 1, not 3.
+We Need to ensure that user passes 2 parameters, not 1, not 3.
 
 ```js
 var someObj = {
-    greetingText: argCheck(greet) // call another function argCheck with original greet as parameter.
+    greetingText: argCheck(greet) // call another function argCheck with original greet function as parameter.
 }
 
-someObj.greetingText("Nat", "Willberg"); // this will not work, greetingText is not a function. 
+someObj.greetingText("Nat", "Willberg"); // this will not work now.
 // someObj.greetingText = ["Nat", "Willberg"]; this works!
 
 function greet(a,b){
@@ -143,8 +135,67 @@ function argCheck(fun){
 
 // Reading: https://andrewberls.com/blog/post/javascript-tricks-enforcing-function-arity
 ```
+### Practical Use Case: Memoization
+**Reducing repetitive computation by storing the results, thus speeds up operations.**
 
-- More about arguments ‘array’. It is a keyword.
+For example, lets take a basic fibonacci series code:
+
+```
+function fibo( n) {
+    if (n<2) return 1;
+    return fibo(n-1) + fibo(n-2)
+}
+```
+for n = 4 we will have to calculate fibo(3) and fib(2). 
+fibo(3) will have to call fibo(2) and fibo(1). 
+And fibo(2) will call fibo(1) and fibo(0).
+Meaning we are calculating fibo(2) and many other twice.
+We could store the result in a data structure(an object or a map) and just fetch the result instead of calculating the function again.
+
+__fibbonacci with memoization__
+```
+// higher order function definition =>
+function memoize(fun) {
+	const cache = new Map(); // store immediate results in a map
+
+  return function( ...args){
+  	const key = JSON.stringify(args);
+
+    if (!cache.has(key)){   // checks if we already have the result of higherOrderfunctionCall(100), otherwise calculates.
+      cache.set(key, fun.apply(this, args)) 
+      
+    }
+     return cache.get(key)
+  }
+}
+
+function fibo( n) {
+    if (n<2) return 1;
+
+    return fibo(n-1) + fibo(n-2)  
+}
+
+const higherOrderfunctionCall = memoize(fibo)
+higherOrderfunctionCall(100) // first time it will run slowly but then store the value to key '100'
+higherOrderfunctionCall(100) // second time will be instant, it will use the 'cache'
+
+```
+- Note that if we replace line `return fibo(n-1) + fibo(n-2)` with the line `return memoize(fibo)(n-1) + memoize(fibo)(n-2)` ; we will not get faster speed, because `fibo(n-1)` and `fibo(n-2)` will run seperately. todo..
+
+## Miscelleneous
+### **return statement: comma vs plus + sign**
+```js
+function fun(value){
+        return value, " or whatever"; // This will return a *tuple*.
+}
+console.log(fun(45)); // This will not return "45, or whatever".  console.log returns only the Last element of a *tuple*!
+```
+Instead always use + for string concatenation: ``` return value + "or whatev" ```
+
+
+
+### More about arguments.length
+    - returns an ‘array’ with limited array options. It is a keyword.
     - It only has length property, cannot insert delete elements
         - [https://2ality.com/2013/06/basic-javascript.html#sect_functions:~:text=Too many or too few arguments](https://2ality.com/2013/06/basic-javascript.html#sect_functions:~:text=Too%20many%20or%20too%20few%20arguments)
             
