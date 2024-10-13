@@ -124,7 +124,7 @@ function greet(a,b){
 // Note that js is flexible in the number of parameters we can pass to a function.
 function argCheck(fun){
 		return function() {  // return ()=> {
-	    if (arguments.length !=fun.length ){
+	    if (arguments.length !=fun.length ){ // check miscellaneous about "arguments.length"
 	        console.log("Mismatch number of arguments, Got ", arguments.length, " But expected ", fun.length);
 	        return;
 	    }
