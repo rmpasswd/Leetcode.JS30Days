@@ -35,5 +35,6 @@ var once = function(fn) {
     }
 };
 ```
-  
+A closure is simply:
+"A function that remembers variables from its outer scope, even after that outer function has finished running".
 
