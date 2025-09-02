@@ -29,7 +29,8 @@ v = getval()
 
 ### 2723. Add Two Promises  
 Given two promises promise1 and promise2, return a new promise. promise1 and promise2 will both resolve with a number. The returned promise should resolve with the sum of the two numbers.
-Solution: 
+
+
 ```
 var addTwoPromises = async function(promise1, promise2) {
         let v1 = await promise1;  
@@ -42,8 +43,9 @@ var addTwoPromises = async function(promise1, promise2) {
     return newpromise;
 };
 ```
+Issue: async function always returns a promise, no need to construct another new Promise. 
 
-There is a nuanch in above code, async function always returns a promise, no need to construct another new Promise. 
+Solution:
 ```js
 var addTwoPromises = async function(promise1, promise2) {
     return await promise1 + await promise2
