@@ -51,7 +51,7 @@ async function sleep(millis) {
 
 
 ### 2715. Timeout Cancellation
-If, before the delay of t milliseconds, the function cancelFn(in test code) is invoked, it should cancel the delayed execution of fn.  
+If, before the delay of t milliseconds, the function cancelFn(in test code, not mine) is invoked, it should cancel the delayed execution of fn.  
 Otherwise, if cancelFn is not invoked within the specified delay t, fn should be executed with the provided args as arguments.
 
 If timeout t arrives then fn function will run with args, notice its an array of arguments thus the three dots.  
@@ -61,4 +61,30 @@ var cancellable = function(fn, args, t) {
     return () => clearTimeout(id)
 };
 ```
+### 2725.  Interval Cancellation  
+This time we have to keep running the given function fn until we reach cancelTimeMs which is when cancel is invoked from the test code(not part of my submission).
+Becase the cancelTimeMs argument is not my headache, I just need to keep running the fn function with setTimeout(wrong!) and provide a cancel function to call when required.
+
+The function we have to use is setInterval and clearInterval. Leetcode's [editorial](https://leetcode.com/problems/interval-cancellation/solutions/3715176/interval-cancellation)  
+```
+var cancellable = function(fn, args, t) {
+    fn(...args);
+
+    let id = setInterval( ()=>{ fn(...args), t} ); // ***
+
+    return = () => clearInterval(id)
+     
+};
+```
+Above code wont work. in the asterisk marked line, I did a strange typo thats also a programming feature called comma expression -_-  
+For example: `a=(1,2,3)` this will evaluate to a=3  
+C example:     `int sum = 0, result = (({for (int i = 0; i < 5; i++) sum += i;}), sum);`  
+comma expression feature is that all the expression will evaluate from left to right. In the `result = (loop, sum)` part, first the left loop will evaluate and we will have a total sum, then the 'sum' after the comma will be assigned to result variable.  
+
+In our js code, the two expressions `fn(..args)` and `t` are in a block seperated by comma, thus its a comma expression. Not serving our goal here though.
+
+t should be the 2nd argument of setInterval, not fn. Easy fix, Done!  
+
+
+
 
